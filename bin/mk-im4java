@@ -31,8 +31,7 @@ setDefaults() {
  outputDir="$binDir/../src"
  inputDir="$binDir/../input"
  package="org.im4java.core"
- eval idfs=(`find "$binDir/../input/" -type f \
-                                       -name "*interface.txt" -printf '"%p" '`)
+ eval idfs=(`find "$binDir/../input/" -type f -name "*interface.txt" -print0 | xargs -0 stat -f '"%N" '`)
  CLASS_HEAD="$inputDir/java.class.head"
  TEMPLATE_OPERATION="$inputDir/operation.java.template"
  TEMPLATE_CMD="$inputDir/cmd.java.template"
@@ -109,7 +108,7 @@ processInterfaceFiles() {
     # generate java-sourcefile for xxxCmd
     # upper-case first character of toolName, because we use it as part of
     # the class name
-    local toolNameU=`sed -e 's/.*/\u&/' <<< $toolName`
+    local toolNameU=`gsed -e 's/.*/\u&/' <<< $toolName`
     targetFile="$targetDir/${toolNameU}Cmd.java"
     echo -e "writing $targetFile" >&2
     if [ "`find $targetDir -iname ${toolName}Cmd.java \
@@ -134,7 +133,7 @@ parseLine() {
     #   -append           -> append
     #   +append           -> p_append
     #   -adaptive-sharpen -> adaptiveSharpen
-    methodName=`sed -e 's/^-*//' -e 's/=$//' -e 's/^+/p_/' \
+    methodName=`gsed -e 's/^-*//' -e 's/=$//' -e 's/^+/p_/' \
                                  -e 's/-\(.\)/\U\1\E/g' <<< $optionName`
   else
     # strip explicit methodName from optionName
@@ -199,21 +198,21 @@ dumpDefs() {
 # write class-header   --------------------------------------------------------
 
 writeClassHeader() {
-  sed -e "s/_PACKAGE_/$package/" -e "s/_CODE_/$code/g" \
+  gsed -e "s/_PACKAGE_/$package/" -e "s/_CODE_/$code/g" \
                     -e "s/_TOOLNAME_/$toolName/g" "$CLASS_HEAD"
 }
 
 # write template-class for operation ------------------------------------------
 
 writeOperationClass() {
-  sed -e "s/_PACKAGE_/$package/" -e "s/_CODE_/$code/g" \
+  gsed -e "s/_PACKAGE_/$package/" -e "s/_CODE_/$code/g" \
             -e "s/_TOOLNAME_/$toolName/g" "$TEMPLATE_OPERATION"
 }
 
 # write template-class for cmd ------------------------------------------------
 
 writeCmdClass() {
-  sed -e "s/_PACKAGE_/$package/" -e "s/_CODE_/$code/g" \
+  gsed -e "s/_PACKAGE_/$package/" -e "s/_CODE_/$code/g" \
             -e "s/_TOOLNAME_/$toolName/g" -e "s/_TOOLNAMEU_/$toolNameU/g" \
                                                 "$TEMPLATE_CMD"
 }
@@ -376,7 +375,7 @@ writeClassTail() {
 # extract and apply idf-settings   --------------------------------------------
 
 getIdfSettings() {
-  eval `sed -ne '/^!/s/!//p' "$1"`
+  eval `gsed -ne '/^!/s/!//p' "$1"`
 }
 
 # main program   --------------------------------------------------------------
