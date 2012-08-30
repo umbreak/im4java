@@ -1,0 +1,23 @@
+# Interface definition for ghostscript
+#
+# Syntax: option|methodName [@] varType:varName operator [...]
+#
+#         Operator: _     space
+#                   @     attach without space
+#                   else  given character
+#
+# $Author: uac $
+# $Revision: 1.0 $
+#
+!validInterface=true
+!toolName=gs
+#
+-v|version
+-dEPSCrop|epsCrop
+-sDEVICE=|outputDevice String:device
+-r|resolution @ Double:density
+-dTextAlphaBits=|textAlphaBits Integer bits
+-dGraphicsAlphaBits=|graphicsAlphaBits Integer bits
+-dUseCropBox|usePdfCropBox
+-dUseTrimBox|usePdfTrimBox
+-o|outputFile String:outputFile
