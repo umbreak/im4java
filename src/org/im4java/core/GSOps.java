@@ -109,6 +109,28 @@ public class GSOps extends Operation {
   //////////////////////////////////////////////////////////////////////////////
 
   /**
+     Add option -dBufferSpace= to the gs commandline
+     (see the documentation of gs for details).
+  */
+
+  public GSOps bufferSpace(Integer space) {
+
+    String       oper;                      // only used in some methods
+    StringBuffer buf = new StringBuffer();  // local buffer for option-args
+    buf.append("-dBufferSpace=");
+
+    if (space != null) {
+      buf.append(space.toString());
+    }
+    if (buf.length()>0) {
+      iCmdArgs.add(buf.toString());
+    }
+    return this;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
      Add option -dEPSCrop to the gs commandline
      (see the documentation of gs for details).
   */
@@ -119,6 +141,69 @@ public class GSOps extends Operation {
     StringBuffer buf = new StringBuffer();  // local buffer for option-args
     iCmdArgs.add("-dEPSCrop");
 
+    if (buf.length()>0) {
+      iCmdArgs.add(buf.toString());
+    }
+    return this;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+     Add option -dEPSFitPage to the gs commandline
+     (see the documentation of gs for details).
+  */
+
+  public GSOps epsFitPage() {
+
+    String       oper;                      // only used in some methods
+    StringBuffer buf = new StringBuffer();  // local buffer for option-args
+    iCmdArgs.add("-dEPSFitPage");
+
+    if (buf.length()>0) {
+      iCmdArgs.add(buf.toString());
+    }
+    return this;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+     Add option -dFirstPage= to the gs commandline
+     (see the documentation of gs for details).
+  */
+
+  public GSOps pdfFirstPage(Integer page) {
+
+    String       oper;                      // only used in some methods
+    StringBuffer buf = new StringBuffer();  // local buffer for option-args
+    buf.append("-dFirstPage=");
+
+    if (page != null) {
+      buf.append(page.toString());
+    }
+    if (buf.length()>0) {
+      iCmdArgs.add(buf.toString());
+    }
+    return this;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+     Add option -dLastPage= to the gs commandline
+     (see the documentation of gs for details).
+  */
+
+  public GSOps pdfLastPage(Integer page) {
+
+    String       oper;                      // only used in some methods
+    StringBuffer buf = new StringBuffer();  // local buffer for option-args
+    buf.append("-dLastPage=");
+
+    if (page != null) {
+      buf.append(page.toString());
+    }
     if (buf.length()>0) {
       iCmdArgs.add(buf.toString());
     }
@@ -150,6 +235,85 @@ public class GSOps extends Operation {
   //////////////////////////////////////////////////////////////////////////////
 
   /**
+     Add option -dNumRenderingThreads= to the gs commandline
+     (see the documentation of gs for details).
+  */
+
+  public GSOps numRenderingThreads(Integer number) {
+
+    String       oper;                      // only used in some methods
+    StringBuffer buf = new StringBuffer();  // local buffer for option-args
+    buf.append("-dNumRenderingThreads=");
+
+    if (number != null) {
+      buf.append(number.toString());
+    }
+    if (buf.length()>0) {
+      iCmdArgs.add(buf.toString());
+    }
+    return this;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+     Add option -dPDFFitPage to the gs commandline
+     (see the documentation of gs for details).
+  */
+
+  public GSOps pdfFitPage() {
+
+    String       oper;                      // only used in some methods
+    StringBuffer buf = new StringBuffer();  // local buffer for option-args
+    iCmdArgs.add("-dPDFFitPage");
+
+    if (buf.length()>0) {
+      iCmdArgs.add(buf.toString());
+    }
+    return this;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+     Add option -dPrinted to the gs commandline
+     (see the documentation of gs for details).
+  */
+
+  public GSOps usePdfPrintOptions() {
+
+    String       oper;                      // only used in some methods
+    StringBuffer buf = new StringBuffer();  // local buffer for option-args
+    iCmdArgs.add("-dPrinted");
+
+    if (buf.length()>0) {
+      iCmdArgs.add(buf.toString());
+    }
+    return this;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+     Add option -dPrinted=false to the gs commandline
+     (see the documentation of gs for details).
+  */
+
+  public GSOps usePdfScreenOptions() {
+
+    String       oper;                      // only used in some methods
+    StringBuffer buf = new StringBuffer();  // local buffer for option-args
+    iCmdArgs.add("-dPrinted=false");
+
+    if (buf.length()>0) {
+      iCmdArgs.add(buf.toString());
+    }
+    return this;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
      Add option -dTextAlphaBits= to the gs commandline
      (see the documentation of gs for details).
   */
@@ -172,6 +336,25 @@ public class GSOps extends Operation {
   //////////////////////////////////////////////////////////////////////////////
 
   /**
+     Add option -dShowAnnots=false to the gs commandline
+     (see the documentation of gs for details).
+  */
+
+  public GSOps pdfHad() {
+
+    String       oper;                      // only used in some methods
+    StringBuffer buf = new StringBuffer();  // local buffer for option-args
+    iCmdArgs.add("-dShowAnnots=false");
+
+    if (buf.length()>0) {
+      iCmdArgs.add(buf.toString());
+    }
+    return this;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
      Add option -dGraphicsAlphaBits= to the gs commandline
      (see the documentation of gs for details).
   */
@@ -185,6 +368,25 @@ public class GSOps extends Operation {
     if (bits != null) {
       buf.append(bits.toString());
     }
+    if (buf.length()>0) {
+      iCmdArgs.add(buf.toString());
+    }
+    return this;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+     Add option -dQUIET to the gs commandline
+     (see the documentation of gs for details).
+  */
+
+  public GSOps quiet() {
+
+    String       oper;                      // only used in some methods
+    StringBuffer buf = new StringBuffer();  // local buffer for option-args
+    iCmdArgs.add("-dQUIET");
+
     if (buf.length()>0) {
       iCmdArgs.add(buf.toString());
     }
@@ -254,6 +456,28 @@ public class GSOps extends Operation {
   //////////////////////////////////////////////////////////////////////////////
 
   /**
+     Add option -sPDFPassword= to the gs commandline
+     (see the documentation of gs for details).
+  */
+
+  public GSOps pdfPassword(String password) {
+
+    String       oper;                      // only used in some methods
+    StringBuffer buf = new StringBuffer();  // local buffer for option-args
+    buf.append("-sPDFPassword=");
+
+    if (password != null) {
+      buf.append(password.toString());
+    }
+    if (buf.length()>0) {
+      iCmdArgs.add(buf.toString());
+    }
+    return this;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
      Add option -sDEVICE= to the gs commandline
      (see the documentation of gs for details).
   */
@@ -266,6 +490,50 @@ public class GSOps extends Operation {
 
     if (deviceName != null) {
       buf.append(deviceName.toString());
+    }
+    if (buf.length()>0) {
+      iCmdArgs.add(buf.toString());
+    }
+    return this;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+     Add option -sFONTPATH= to the gs commandline
+     (see the documentation of gs for details).
+  */
+
+  public GSOps fontPath(String paths) {
+
+    String       oper;                      // only used in some methods
+    StringBuffer buf = new StringBuffer();  // local buffer for option-args
+    buf.append("-sFONTPATH=");
+
+    if (paths != null) {
+      buf.append(paths.toString());
+    }
+    if (buf.length()>0) {
+      iCmdArgs.add(buf.toString());
+    }
+    return this;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+     Add option -sPAPERSIZE= to the gs commandline
+     (see the documentation of gs for details).
+  */
+
+  public GSOps paperSize(String size) {
+
+    String       oper;                      // only used in some methods
+    StringBuffer buf = new StringBuffer();  // local buffer for option-args
+    buf.append("-sPAPERSIZE=");
+
+    if (size != null) {
+      buf.append(size.toString());
     }
     if (buf.length()>0) {
       iCmdArgs.add(buf.toString());

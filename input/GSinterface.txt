@@ -15,12 +15,25 @@
 -v|version
 -dAlignToPixels|alignToPixels Integer:size
 -dBackgroundColor|backgroundColor String:color
+-dBufferSpace=|bufferSpace Integer:space
 -dEPSCrop|epsCrop
+-dEPSFitPage|epsFitPage
+-dFirstPage=|pdfFirstPage Integer:page
+-dLastPage=|pdfLastPage Integer:page
 -dMaxBitmap|maxBitmap Integer:size
+-dNumRenderingThreads=|numRenderingThreads Integer:number
+-dPDFFitPage|pdfFitPage
+-dPrinted|usePdfPrintOptions
+-dPrinted=false|usePdfScreenOptions
 -dTextAlphaBits=|textAlphaBits Integer:bits
+-dShowAnnots=false|pdfHad
 -dGraphicsAlphaBits=|graphicsAlphaBits Integer:bits
+-dQUIET|quiet
 -dUseCropBox|usePdfCropBox
 -dUseTrimBox|usePdfTrimBox
 -o|outputFile String:outputFile
+-sPDFPassword=|pdfPassword String:password
 -sDEVICE=|outputDevice String:deviceName
+-sFONTPATH=|fontPath String:paths
+-sPAPERSIZE=|paperSize String:size
 -r|resolution @ Double:density
