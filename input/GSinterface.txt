@@ -13,11 +13,14 @@
 !toolName=gs
 #
 -v|version
+-dAlignToPixels|alignToPixels Integer:size
+-dBackgroundColor|backgroundColor String:color
 -dEPSCrop|epsCrop
--sDEVICE=|outputDevice String:device
--r|resolution @ Double:density
--dTextAlphaBits=|textAlphaBits Integer bits
--dGraphicsAlphaBits=|graphicsAlphaBits Integer bits
+-dMaxBitmap|maxBitmap Integer:size
+-dTextAlphaBits=|textAlphaBits Integer:bits
+-dGraphicsAlphaBits=|graphicsAlphaBits Integer:bits
 -dUseCropBox|usePdfCropBox
 -dUseTrimBox|usePdfTrimBox
 -o|outputFile String:outputFile
+-sDEVICE=|outputDevice String:deviceName
+-r|resolution @ Double:density

@@ -65,6 +65,50 @@ public class GSOps extends Operation {
   //////////////////////////////////////////////////////////////////////////////
 
   /**
+     Add option -dAlignToPixels to the gs commandline
+     (see the documentation of gs for details).
+  */
+
+  public GSOps alignToPixels(Integer size) {
+
+    String       oper;                      // only used in some methods
+    StringBuffer buf = new StringBuffer();  // local buffer for option-args
+    iCmdArgs.add("-dAlignToPixels");
+
+    if (size != null) {
+      buf.append(size.toString());
+    }
+    if (buf.length()>0) {
+      iCmdArgs.add(buf.toString());
+    }
+    return this;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+     Add option -dBackgroundColor to the gs commandline
+     (see the documentation of gs for details).
+  */
+
+  public GSOps backgroundColor(String color) {
+
+    String       oper;                      // only used in some methods
+    StringBuffer buf = new StringBuffer();  // local buffer for option-args
+    iCmdArgs.add("-dBackgroundColor");
+
+    if (color != null) {
+      buf.append(color.toString());
+    }
+    if (buf.length()>0) {
+      iCmdArgs.add(buf.toString());
+    }
+    return this;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
      Add option -dEPSCrop to the gs commandline
      (see the documentation of gs for details).
   */
@@ -84,40 +128,18 @@ public class GSOps extends Operation {
   //////////////////////////////////////////////////////////////////////////////
 
   /**
-     Add option -sDEVICE= to the gs commandline
+     Add option -dMaxBitmap to the gs commandline
      (see the documentation of gs for details).
   */
 
-  public GSOps outputDevice(String device) {
+  public GSOps maxBitmap(Integer size) {
 
     String       oper;                      // only used in some methods
     StringBuffer buf = new StringBuffer();  // local buffer for option-args
-    buf.append("-sDEVICE=");
+    iCmdArgs.add("-dMaxBitmap");
 
-    if (device != null) {
-      buf.append(device.toString());
-    }
-    if (buf.length()>0) {
-      iCmdArgs.add(buf.toString());
-    }
-    return this;
-  }
-
-  //////////////////////////////////////////////////////////////////////////////
-
-  /**
-     Add option -r to the gs commandline
-     (see the documentation of gs for details).
-  */
-
-  public GSOps resolution(Double density) {
-
-    String       oper;                      // only used in some methods
-    StringBuffer buf = new StringBuffer();  // local buffer for option-args
-    buf.append("-r");
-
-    if (density != null) {
-      buf.append(density.toString());
+    if (size != null) {
+      buf.append(size.toString());
     }
     if (buf.length()>0) {
       iCmdArgs.add(buf.toString());
@@ -132,14 +154,14 @@ public class GSOps extends Operation {
      (see the documentation of gs for details).
   */
 
-  public GSOps textAlphaBits(Integer Integer) {
+  public GSOps textAlphaBits(Integer bits) {
 
     String       oper;                      // only used in some methods
     StringBuffer buf = new StringBuffer();  // local buffer for option-args
     buf.append("-dTextAlphaBits=");
 
-    if (Integer != null) {
-      buf.append(Integer.toString());
+    if (bits != null) {
+      buf.append(bits.toString());
     }
     if (buf.length()>0) {
       iCmdArgs.add(buf.toString());
@@ -154,14 +176,14 @@ public class GSOps extends Operation {
      (see the documentation of gs for details).
   */
 
-  public GSOps graphicsAlphaBits(Integer Integer) {
+  public GSOps graphicsAlphaBits(Integer bits) {
 
     String       oper;                      // only used in some methods
     StringBuffer buf = new StringBuffer();  // local buffer for option-args
     buf.append("-dGraphicsAlphaBits=");
 
-    if (Integer != null) {
-      buf.append(Integer.toString());
+    if (bits != null) {
+      buf.append(bits.toString());
     }
     if (buf.length()>0) {
       iCmdArgs.add(buf.toString());
@@ -222,6 +244,50 @@ public class GSOps extends Operation {
 
     if (outputFile != null) {
       buf.append(outputFile.toString());
+    }
+    if (buf.length()>0) {
+      iCmdArgs.add(buf.toString());
+    }
+    return this;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+     Add option -sDEVICE= to the gs commandline
+     (see the documentation of gs for details).
+  */
+
+  public GSOps outputDevice(String deviceName) {
+
+    String       oper;                      // only used in some methods
+    StringBuffer buf = new StringBuffer();  // local buffer for option-args
+    buf.append("-sDEVICE=");
+
+    if (deviceName != null) {
+      buf.append(deviceName.toString());
+    }
+    if (buf.length()>0) {
+      iCmdArgs.add(buf.toString());
+    }
+    return this;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////
+
+  /**
+     Add option -r to the gs commandline
+     (see the documentation of gs for details).
+  */
+
+  public GSOps resolution(Double density) {
+
+    String       oper;                      // only used in some methods
+    StringBuffer buf = new StringBuffer();  // local buffer for option-args
+    buf.append("-r");
+
+    if (density != null) {
+      buf.append(density.toString());
     }
     if (buf.length()>0) {
       iCmdArgs.add(buf.toString());
