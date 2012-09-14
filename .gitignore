@@ -4,4 +4,5 @@
 /build
 /im4java.iml
 /gradle.properties
+/out
 /*.jar
